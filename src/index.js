@@ -1,0 +1,36 @@
+//require("dotenv").config({path: "./.env"}); //provides access to environment variables defined in .env file as early as possible in the application lifecycle
+
+import dotenv from "dotenv";
+
+import mongoose from "mongoose";
+import{ DB_NAME } from "./constants.js";
+import connectDB from "./db/index.js";
+
+import express from "express";
+const app = express();
+
+dotenv.config({path: "./.env"});
+
+connectDB();
+
+
+
+
+
+/*
+( async () => {
+    try {
+        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
+        app.on("error", () =>{
+            console.log("Error", error);
+            throw error
+        })
+        app.listen(process.env.PORT, () =>{
+            console.log(`App is listining on port ${process.env.PORT}`);
+        })
+    } catch (error) {
+        console.error("Error connecting to MongoDB:", error);
+    }
+})();
+
+*/
